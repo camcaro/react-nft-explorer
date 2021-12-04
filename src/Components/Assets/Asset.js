@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { CardActionArea, Avatar } from '@mui/material';
 
 const Asset = props => {
   const asset = props.asset;
@@ -14,19 +14,22 @@ const Asset = props => {
     content = (
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
+          {/* <Avatar
+            src={asset.creator ? asset.creator.profile_img_url : ''}
+          ></Avatar> */}
           <CardMedia
             component='img'
-            height='140'
+            height='100%'
             image={asset.image_url}
             alt={asset.name + ' image'}
           />
           <CardContent>
-            <Typography gutterBottom variant='h5' component='div'>
+            <Typography gutterBottom variant='h6' component='div'>
               {asset.name}
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            {/* <Typography variant='body2' color='text.secondary'>
               {asset.description}
-            </Typography>
+            </Typography> */}
           </CardContent>
         </CardActionArea>
       </Card>

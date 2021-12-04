@@ -1,4 +1,5 @@
 import Asset from './Asset';
+import { Grid, Container, Paper } from '@mui/material';
 import { useState, useEffect } from 'react';
 
 const Assets = () => {
@@ -30,16 +31,32 @@ const Assets = () => {
     content = (
       <div>
         <h3>Assets length: {assets.length}</h3>
-        <ul>
-          {assets.map(asset => {
-            return (
-              <li key={asset.id}>
-                <Asset asset={asset} />
-              </li>
-            );
-          })}
-        </ul>
+        <Container>
+          <Grid container spacing={2} alignItems='center'>
+            {assets.map(asset => {
+              return (
+                <Grid item xs={12} sm={6} md={4} key={asset.id}>
+                  <Paper>
+                    <Asset asset={asset} />
+                  </Paper>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Container>
       </div>
+      // <div>
+      //   <h3>Assets length: {assets.length}</h3>
+      //   <ul>
+      //     {assets.map(asset => {
+      //       return (
+      //         <li key={asset.id}>
+      //           <Asset asset={asset} />
+      //         </li>
+      //       );
+      //     })}
+      //   </ul>
+      // </div>
     );
   }
 
