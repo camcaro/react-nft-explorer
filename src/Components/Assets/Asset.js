@@ -12,14 +12,14 @@ const Asset = props => {
   if (asset.id) {
     // console.log(asset);
     content = (
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: '100%' }}>
         <CardActionArea>
           {/* <Avatar
             src={asset.creator ? asset.creator.profile_img_url : ''}
           ></Avatar> */}
           <CardMedia
             component='img'
-            height='100%'
+            height='auto'
             image={asset.image_url}
             alt={asset.name + ' image'}
           />
