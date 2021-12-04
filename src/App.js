@@ -1,9 +1,10 @@
+import NavigationBar from './Components/NavigationBar/NavigationBar';
 import Assets from './Components/Assets/Assets';
 
 function App() {
   return (
     <div>
-      <h1>Hello NFT Explorer!</h1>
+      <NavigationBar />
       <Assets />
     </div>
   );

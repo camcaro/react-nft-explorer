@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, Avatar } from '@mui/material';
+import { CardActionArea } from '@mui/material';
 
 const Asset = props => {
   const asset = props.asset;
@@ -33,16 +33,6 @@ const Asset = props => {
           </CardContent>
         </CardActionArea>
       </Card>
-      // <div>
-      //   <h2>Asset</h2>
-      //   <h3>Collection: {asset.collection.name}</h3>
-      //   <img src={asset.creator.profile_img_url} alt='Creator profile img' />
-      //   <p>Asset name: {asset.name}</p>
-      //   <img src={asset.image_url} alt={asset.name + ' image'} />
-      //   <p>Current Owner: {asset.owner.address}</p>
-      //   <h4>Description:</h4>
-      //   <p>Description: {asset.description}</p>
-      // </div>
     );
   }
 

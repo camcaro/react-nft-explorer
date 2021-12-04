@@ -27,7 +27,7 @@ const Assets = () => {
   let content = <h3>Fetching Assets</h3>;
 
   if (assets.length > 0) {
-    console.log(assets.length);
+    // console.log(assets.length);
     content = (
       <div>
         <h3>Assets length: {assets.length}</h3>
@@ -45,18 +45,6 @@ const Assets = () => {
           </Grid>
         </Container>
       </div>
-      // <div>
-      //   <h3>Assets length: {assets.length}</h3>
-      //   <ul>
-      //     {assets.map(asset => {
-      //       return (
-      //         <li key={asset.id}>
-      //           <Asset asset={asset} />
-      //         </li>
-      //       );
-      //     })}
-      //   </ul>
-      // </div>
     );
   }
 
