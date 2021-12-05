@@ -43,14 +43,6 @@ const Collections = () => {
             })}
           </Grid>
         </Container>
-        {/* <ul>
-          {collections.map(collection => (
-            <li key={collection.slug}>
-              <h3>Name: {collection.name}</h3>
-              <p>Primary asset contract</p>
-            </li>
-          ))}
-        </ul> */}
       </div>
     );
   }

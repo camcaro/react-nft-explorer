@@ -32,8 +32,9 @@ const Assets = props => {
       <div>
         <Typography variant='h3'>{props.category}</Typography>
         <Container>
-          <Grid container spacing={2} alignItems='center'>
+          <Grid container spacing={2} alignItems='flex-end'>
             {assets.map(asset => {
+              if (!asset.image_url) return <div></div>;
               return (
                 <Grid item xs={12} sm={6} md={4} key={asset.id}>
                   <Paper>

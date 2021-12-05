@@ -24,7 +24,13 @@ const Asset = props => {
             alt={asset.name + ' image'}
           />
           <CardContent>
-            <Typography gutterBottom variant='h6' component='div'>
+            <Typography
+              gutterBottom
+              variant='h6'
+              component='div'
+              height='30'
+              noWrap={true}
+            >
               {asset.name}
             </Typography>
             {/* <Typography variant='body2' color='text.secondary'>
