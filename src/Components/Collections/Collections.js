@@ -1,6 +1,6 @@
 import Collection from './Collection';
 import { useState, useEffect } from 'react';
-import { Container, Grid, Paper } from '@mui/material';
+import { Container, Grid, Paper, Typography } from '@mui/material';
 
 const Collections = () => {
   const [collections, setCollections] = useState([]);
@@ -28,7 +28,10 @@ const Collections = () => {
     // console.log(collections[0]);
     content = (
       <div>
-        <p>{`Collections length: ${collections.length}`}</p>
+        <Typography variant='h3' align='center' color='primary'>
+          Collections
+        </Typography>
+        {/* <p>{`Collections length: ${collections.length}`}</p> */}
         <Container>
           <Grid container spacing={2} alignItems='center'>
             {collections.map(collection => {
@@ -47,12 +50,7 @@ const Collections = () => {
     );
   }
 
-  return (
-    <div>
-      <h2>Collections</h2>
-      <div>{content}</div>
-    </div>
-  );
+  return content;
 };
 
 export default Collections;

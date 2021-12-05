@@ -44,9 +44,10 @@ const NavigationBar = () => {
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <Typography
-            variant='h6'
+            variant='h5'
             noWrap
             component='div'
+            color='secondary'
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
             {appName}
@@ -59,7 +60,7 @@ const NavigationBar = () => {
               aria-controls='menu-appbar'
               aria-haspopup='true'
               onClick={handleOpenNavMenu}
-              color='inherit'
+              color='secondary'
             >
               <MenuIcon />
             </IconButton>
@@ -98,9 +99,10 @@ const NavigationBar = () => {
             </Menu>
           </Box>
           <Typography
-            variant='h6'
+            variant='h5'
             noWrap
             component='div'
+            color='secondary'
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
             {appName}
@@ -125,7 +127,10 @@ const NavigationBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
+                <Avatar
+                  alt='Firstname Lastname'
+                  src='/static/images/avatar/2.jpg'
+                />
               </IconButton>
             </Tooltip>
             <Menu

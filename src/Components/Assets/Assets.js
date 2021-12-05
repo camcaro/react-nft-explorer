@@ -30,7 +30,9 @@ const Assets = props => {
     // console.log(assets.length);
     content = (
       <div>
-        <Typography variant='h3'>{props.category}</Typography>
+        <Typography variant='h3' align='center' color='primary'>
+          {props.category}
+        </Typography>
         <Container>
           <Grid container spacing={3} alignItems='flex-end'>
             {assets.map(asset => {
