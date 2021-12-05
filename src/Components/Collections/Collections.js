@@ -7,7 +7,7 @@ const Collections = () => {
 
   const getCollections = async () => {
     const options = { method: 'GET' };
-    let url = `https://api.opensea.io/api/v1/collections?offset=3000&limit=30`;
+    let url = `https://api.opensea.io/api/v1/collections?offset=3000&limit=300`;
     try {
       const response = await fetch(url, options);
       const json = await response.json();
@@ -32,13 +32,14 @@ const Collections = () => {
         <Container>
           <Grid container spacing={2} alignItems='center'>
             {collections.map(collection => {
-              return (
-                <Grid item xs={12} sm={12} md={6} key={collection.slug}>
-                  <Paper>
-                    <Collection collection={collection} />
-                  </Paper>
-                </Grid>
-              );
+              if (collection.banner_image_url)
+                return (
+                  <Grid item xs={12} sm={12} md={6} key={collection.slug}>
+                    <Paper>
+                      <Collection collection={collection} />
+                    </Paper>
+                  </Grid>
+                );
             })}
           </Grid>
         </Container>

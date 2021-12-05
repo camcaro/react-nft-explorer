@@ -32,7 +32,12 @@ const Collection = props => {
             <Typography gutterBottom variant='h6' component='div'>
               {collection.name}
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            <Typography
+              variant='body2'
+              color='text.secondary'
+              noWrap={true}
+              height={30}
+            >
               {collection.description}
             </Typography>
           </CardContent>
