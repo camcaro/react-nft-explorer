@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import { useState } from 'react';
 import {
   AppBar,
@@ -84,9 +84,14 @@ const NavigationBar = () => {
               {pages.map(page => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign='center'>
-                    <NavLink to={`/${page}`}>
-                      <Link underline='hover'>{page}</Link>
-                    </NavLink>
+                    <Link
+                      component={RouterLink}
+                      to={`/${page}`}
+                      underline='hover'
+                    >
+                      {/* <NavLink to={`/${page}`}>{page}</NavLink> */}
+                      {page}
+                    </Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -104,9 +109,14 @@ const NavigationBar = () => {
             {pages.map(page => (
               <Button key={page} onClick={handleCloseNavMenu}>
                 <Typography textAlign='center'>
-                  <NavLink to={`/${page}`}>
-                    <Link color='secondary'>{page}</Link>
-                  </NavLink>
+                  <Link
+                    component={RouterLink}
+                    to={`/${page}`}
+                    color='secondary'
+                  >
+                    {/* <NavLink to={`/${page}`}>{page}</NavLink> */}
+                    {page}
+                  </Link>
                 </Typography>
               </Button>
             ))}

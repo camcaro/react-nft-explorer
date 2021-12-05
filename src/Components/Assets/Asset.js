@@ -23,19 +23,10 @@ const Asset = props => {
             image={asset.image_url}
             alt={asset.name + ' image'}
           />
-          <CardContent>
-            <Typography
-              gutterBottom
-              variant='h6'
-              component='div'
-              height='30'
-              noWrap={true}
-            >
+          <CardContent sx={{ height: 30 }}>
+            <Typography gutterBottom variant='h6' component='div' noWrap={true}>
               {asset.name}
             </Typography>
-            {/* <Typography variant='body2' color='text.secondary'>
-              {asset.description}
-            </Typography> */}
           </CardContent>
         </CardActionArea>
       </Card>

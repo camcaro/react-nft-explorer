@@ -25,21 +25,21 @@ const Collections = () => {
   let content = <h3>Fetching Collections</h3>;
 
   if (collections.length > 0) {
-    console.log(collections[0]);
+    // console.log(collections[0]);
     content = (
       <div>
         <p>{`Collections length: ${collections.length}`}</p>
         <Container>
           <Grid container spacing={2} alignItems='center'>
             {collections.map(collection => {
-              if (collection.banner_image_url)
-                return (
-                  <Grid item xs={12} sm={12} md={6} key={collection.slug}>
-                    <Paper>
-                      <Collection collection={collection} />
-                    </Paper>
-                  </Grid>
-                );
+              if (!collection.banner_image_url) return null;
+              return (
+                <Grid item xs={12} sm={12} md={6} key={collection.slug}>
+                  <Paper>
+                    <Collection collection={collection} />
+                  </Paper>
+                </Grid>
+              );
             })}
           </Grid>
         </Container>

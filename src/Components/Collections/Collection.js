@@ -15,7 +15,7 @@ const Collection = props => {
     if (!bannerImage)
       bannerImage =
         'https://dummyimage.com/1400x400/49c6e5/f7ef52.png&text=++++++NFT+Explorer++++++';
-    console.log(bannerImage);
+    // console.log(bannerImage);
     content = (
       <Card sx={{ maxWidth: '100%', maxHeight: '50%' }}>
         <CardActionArea>

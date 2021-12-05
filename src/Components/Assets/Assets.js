@@ -4,16 +4,16 @@ import { useState, useEffect } from 'react';
 
 const Assets = props => {
   const [assets, setAssets] = useState([]);
-
   const url = `https://api.opensea.io/api/v1/assets?${props.params}&offset=0&limit=24`;
-  // 'https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=24';
+  // console.log(props.params);
+  // console.log(url);
 
   const getAssets = async () => {
     const options = { method: 'GET' };
     try {
       const response = await fetch(url, options);
       const json = await response.json();
-      console.log(json.assets);
+      // console.log(json.assets);
       setAssets(json.assets);
     } catch (err) {
       throw err;
@@ -32,7 +32,7 @@ const Assets = props => {
       <div>
         <Typography variant='h3'>{props.category}</Typography>
         <Container>
-          <Grid container spacing={2} alignItems='flex-end'>
+          <Grid container spacing={3} alignItems='flex-end'>
             {assets.map(asset => {
               if (!asset.image_url) return <div></div>;
               return (
