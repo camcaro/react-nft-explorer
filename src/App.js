@@ -20,8 +20,16 @@ function App() {
               />
             }
           />
+          <Route
+            path='/latest'
+            element={
+              <Assets
+                params='order_by=sale_date&order_direction=desc'
+                category='Latest sold NFTs'
+              />
+            }
+          />
           <Route path='/collections' element={<Collections />} />
-          {/* <Route path='/assets' element={<Assets />} /> */}
           <Route path='*' element={<h2> 404 Not found!</h2>} />
         </Routes>
       </ThemeProvider>

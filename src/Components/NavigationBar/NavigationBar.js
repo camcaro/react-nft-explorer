@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import {
   AppBar,
@@ -10,13 +11,14 @@ import {
   Avatar,
   Button,
   Tooltip,
-  MenuItem
+  MenuItem,
+  Link
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const appName = 'NFT Explorer';
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Latest', 'Collections', 'Selected'];
+const settings = ['Profile', 'Account', 'Logout'];
 
 const NavigationBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -81,7 +83,11 @@ const NavigationBar = () => {
             >
               {pages.map(page => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
+                  <Typography textAlign='center'>
+                    <NavLink to={`/${page}`}>
+                      <Link underline='hover'>{page}</Link>
+                    </NavLink>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -96,12 +102,12 @@ const NavigationBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map(page => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+              <Button key={page} onClick={handleCloseNavMenu}>
+                <Typography textAlign='center'>
+                  <NavLink to={`/${page}`}>
+                    <Link color='secondary'>{page}</Link>
+                  </NavLink>
+                </Typography>
               </Button>
             ))}
           </Box>
