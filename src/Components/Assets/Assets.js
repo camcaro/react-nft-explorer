@@ -1,17 +1,17 @@
 import Asset from './Asset';
-import { Grid, Container, Paper } from '@mui/material';
+import { Grid, Container, Paper, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 
-const Assets = () => {
+const Assets = props => {
   const [assets, setAssets] = useState([]);
+
+  const url = `https://api.opensea.io/api/v1/assets?${props.params}&offset=0&limit=24`;
+  // 'https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=24';
 
   const getAssets = async () => {
     const options = { method: 'GET' };
     try {
-      const response = await fetch(
-        'https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=24',
-        options
-      );
+      const response = await fetch(url, options);
       const json = await response.json();
       console.log(json.assets);
       setAssets(json.assets);
@@ -30,7 +30,7 @@ const Assets = () => {
     // console.log(assets.length);
     content = (
       <div>
-        <h3>Assets length: {assets.length}</h3>
+        <Typography variant='h3'>{props.category}</Typography>
         <Container>
           <Grid container spacing={2} alignItems='center'>
             {assets.map(asset => {
@@ -48,12 +48,7 @@ const Assets = () => {
     );
   }
 
-  return (
-    <div>
-      <h2>Assets</h2>
-      <div>{content}</div>
-    </div>
-  );
+  return content;
 };
 
 export default Assets;
