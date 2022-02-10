@@ -1,19 +1,35 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography
+} from '@mui/material';
+// import { Link as RouterLink, Navigate } from 'react-router-dom';
 
 const Asset = props => {
   const asset = props.asset;
   let content = <h2>Asset component</h2>;
 
+  const navigate = useNavigate();
+
+  const clickHandler = () => {
+    //console.log('clicked');
+    //console.log(asset);
+    //console.log(asset.asset_contract.address);
+    //console.log(asset.token_id);
+    navigate(`/singleasset/${asset.asset_contract.address}/${asset.token_id}`, {
+      state: { ...asset }
+    });
+  };
+
   if (asset.id) {
-    // console.log(asset);
+    //console.log(asset);
     content = (
       <Card sx={{ maxWidth: '100%' }}>
-        <CardActionArea>
+        <CardActionArea onClick={clickHandler}>
           {/* <Avatar
             src={asset.creator ? asset.creator.profile_img_url : ''}
           ></Avatar> */}
