@@ -2,6 +2,8 @@ import Asset from './Asset';
 import { Grid, Container, Paper, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 
+//import exampleAssets from '../example responses/example_Assets_response.json';
+
 const Assets = props => {
   const [assets, setAssets] = useState([]);
   const url = `https://api.opensea.io/api/v1/assets?${props.params}&offset=0&limit=24`;
@@ -9,13 +11,22 @@ const Assets = props => {
   // console.log(url);
 
   const getAssets = async () => {
-    const options = { method: 'GET' };
+    const options = {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'X-API-KEY': ''
+      }
+    };
     try {
       const response = await fetch(url, options);
+      console.log('Status: ' + response.status + response.statusText);
       const json = await response.json();
       // console.log(json.assets);
       setAssets(json.assets);
     } catch (err) {
+      //setAssets(exampleAssets.assets);
+      //console.log(err);
       throw err;
     }
   };
