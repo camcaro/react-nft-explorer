@@ -4,7 +4,7 @@ import { ThemeProvider } from '@mui/material';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
 import Assets from './Components/Assets/Assets';
 import Collections from './Components/Collections/Collections';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   return (
@@ -12,8 +12,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <NavigationBar />
         <Routes>
+          <Route path='/' element={<Navigate replace to='/latest' />} />
           <Route
-            path='/'
+            path='/latest'
             element={
               <Assets
                 params='order_by=sale_date&order_direction=desc'
@@ -21,12 +22,13 @@ function App() {
               />
             }
           />
+          <Route path='/collections' element={<Collections />} />
           <Route
-            path='latest'
+            path='/selected'
             element={
               <Assets
-                params='order_by=sale_date&order_direction=desc'
-                category='Latest sold NFTs'
+                params={selectedCollections}
+                category='Selected Collection - CryptoPunks'
               />
             }
           />
