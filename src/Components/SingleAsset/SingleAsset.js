@@ -22,10 +22,10 @@ const SingleAsset = () => {
   useEffect(() => {
     // console.log('inside useEffect');
     if (!passedAsset) {
-      console.log('fetching asset from api');
+      //console.log('fetching asset from api');
       getSingleAsset();
     } else {
-      console.log('set asset from passed state');
+      //console.log('set asset from passed state');
       setSingleAsset({ ...passedAsset });
     }
   }, []);
@@ -113,7 +113,14 @@ const SingleAsset = () => {
                 {singleAsset.traits &&
                   singleAsset.traits.map(trait => {
                     return (
-                      <Grid item xs={6} sm={3} key={trait.keys}>
+                      <Grid
+                        item
+                        xs={6}
+                        sm={3}
+                        key={
+                          trait.trait_type + '_' + trait.trait_count.toString()
+                        }
+                      >
                         <Card>
                           <Typography
                             variant='subtitle2'

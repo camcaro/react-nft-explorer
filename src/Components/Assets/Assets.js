@@ -15,7 +15,7 @@ const Assets = props => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
-        'X-API-KEY': ''
+        'X-API-KEY': '' // empty API key
       }
     };
     try {
@@ -47,7 +47,7 @@ const Assets = props => {
         <Container>
           <Grid container spacing={3} alignItems='flex-end'>
             {assets.map(asset => {
-              if (!asset.image_url) return <div></div>;
+              if (!asset.image_url) return <div key={asset.id}></div>;
               return (
                 <Grid item xs={12} sm={6} md={4} key={asset.id}>
                   <Paper>
